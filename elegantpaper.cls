@@ -90,12 +90,13 @@
 
 % define the hyperref color 
 \RequirePackage{xcolor}
-\definecolor{winered}{rgb}{0.5,0,0}
-
+% \definecolor{winered}{rgb}{0.5,0,0}
+\definecolor{winered}{RGB}{235,64,52}
 \definecolor{lightgrey}{rgb}{0.95,0.95,0.95}
 \definecolor{commentcolor}{RGB}{0,100,0}
 \definecolor{frenchplum}{RGB}{190,20,83}
 
+\definecolor{gred}{RGB}{235,64,52}
 
 % add the email cmd 
 \newcommand\email[1]{\href{mailto:#1}{\nolinkurl{#1}}}
@@ -173,10 +174,15 @@
 \setCJKmainfont{Noto Serif CJK TC}[ItalicFont={KaiTi}]
 \setCJKsansfont{Noto Sans CJK TC}[ItalicFont={KaiTi}]
 \setCJKmonofont{Sarasa Mono TC}
-\newCJKfontfamily{\NotoSerifSC}{Noto Serif CJK SC}
-\xeCJKsetup{PunctFamily=NotoSerifSC}
+\newCJKfontfamily\NotoSerifSC{Noto Serif CJK SC}
+\xeCJKsetup{PunctFamily=NotoSerifSC,PunctStyle=kaiming}
 \newCJKfontfamily\Kaiti{KaiTi}
+\newCJKfontfamily\NotoSansTC{Noto Sans CJK TC}
 \newfontfamily\Mincho{Hiragino Mincho Pro W3}[BoldFont=Hiragino Mincho Pro W6]
+\newfontfamily\Kaku{Hiragino Kaku Gothic Pro W6}[BoldFont=Hiragino Kaku Gothic Pro W6]
+
+\RequirePackage{xeCJKfntef}
+\xeCJKsetup{underline/skip=false}
 
 \RequirePackage{appendix}
 
@@ -237,7 +243,8 @@
   \setlength\parindent{2em}
   \renewcommand{\abstracttextfont}{\sffamily\small\noindent\ignorespaces}
   % newcommands defined in this template.
-  \newcommand{\keywords}[1]{\vskip 2ex\par\noindent\normalfont{\bfseries Keywords: } #1}
+  % \newcommand{\keywords}[1]{\vskip 2ex\par\noindent\normalfont{\bfseries Keywords: } #1}
+  \newcommand{\keywords}[1]{{\CJKfamily+{NotoSansTC}\textcolor{gred}{#1}}\hspace{1.2em}}
   \newcommand\figref[1]{{\bfseries Figure~\ref{#1}}}
   \newcommand\tabref[1]{{\bfseries Table~\ref{#1}}}
   \RequirePackage[\ELEGANT@cite,sort&compress]{natbib}
