@@ -79,8 +79,9 @@
 
 % caption settings 
 \RequirePackage[font=small,labelfont={bf}]{caption}
+\DeclareCaptionFont{color}{\color{#1}}
 \captionsetup[table]{skip=3pt}
-\captionsetup[figure]{skip=3pt}
+\captionsetup[figure]{skip=3pt,textfont={color=gray},font={footnotesize,sf}}
 
 % list/itemize/enumerate setting
 \RequirePackage[shortlabels,inline]{enumitem}
@@ -148,25 +149,34 @@
   \newcommand{\cfs}{\normalfont}
 \fi
 
-\RequirePackage{newtxtext}
-\ifdefstring{\ELEGANT@math}{newtx}{
-  \RequirePackage{newtxmath}
-  \let\Bbbk\relax
-  \RequirePackage{esint}
-  %%% use yhmath pkg, uncomment following code
-  % \let\oldwidering\widering
-  % \let\widering\undefined
-  % \RequirePackage{yhmath}
-  % \let\widering\oldwidering
+% \RequirePackage{newtxtext}
+% \ifdefstring{\ELEGANT@math}{newtx}{
+%   \RequirePackage{newtxmath}
+%   \let\Bbbk\relax
+%   \RequirePackage{esint}
+%   %%% use yhmath pkg, uncomment following code
+%   % \let\oldwidering\widering
+%   % \let\widering\undefined
+%   % \RequirePackage{yhmath}
+%   % \let\widering\oldwidering
 
-  %%% use esvect pkg, uncomment following code
-  % \RequirePackage{esvect}
+%   %%% use esvect pkg, uncomment following code
+%   % \RequirePackage{esvect}
 
-  \DeclareSymbolFont{CMlargesymbols}{OMX}{cmex}{m}{n}
-  \let\sumop\relax\let\prodop\relax
-  \DeclareMathSymbol{\sumop}{\mathop}{CMlargesymbols}{"50}
-  \DeclareMathSymbol{\prodop}{\mathop}{CMlargesymbols}{"51}
-}{\relax}
+%   \DeclareSymbolFont{CMlargesymbols}{OMX}{cmex}{m}{n}
+%   \let\sumop\relax\let\prodop\relax
+%   \DeclareMathSymbol{\sumop}{\mathop}{CMlargesymbols}{"50}
+%   \DeclareMathSymbol{\prodop}{\mathop}{CMlargesymbols}{"51}
+% }{\relax}
+
+\RequirePackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK TC}[ItalicFont={KaiTi}]
+\setCJKsansfont{Noto Sans CJK TC}[ItalicFont={KaiTi}]
+\setCJKmonofont{Sarasa Mono TC}
+\newCJKfontfamily{\NotoSerifSC}{Noto Serif CJK SC}
+\xeCJKsetup{PunctFamily=NotoSerifSC}
+\newCJKfontfamily\Kaiti{KaiTi}
+\newfontfamily\Mincho{Hiragino Mincho Pro W3}[BoldFont=Hiragino Mincho Pro W6]
 
 \RequirePackage{appendix}
 
